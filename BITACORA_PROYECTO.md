@@ -231,40 +231,6 @@ Luego de la Entrega 8, identifico las siguientes limitaciones y mejoras:
 
 El proyecto quedó en un estado consistente entre implementación, documentación y criterio profesional. Todas las decisiones fueron documentadas para que se entienda por qué se eligió cada camino.
 
-### Checklist de entrega (Módulo 7)
-
-Validé que todo cumpliera con los criterios de evaluación:
-
-- ✅ **Multer configurado correctamente**
-  - diskStorage con nombres únicos (timestamp + random)
-  - Carpetas organizadas por tipo: documents, receipts, proofs
-  - Límites de tamaño: 5MB por archivo
-  - MIME types y extensiones validados en uploadMIddleware
-
-- ✅ **Archivos asociados a entidades**
-  - Users: `documents` array con metadatos
-  - Orders: `proofs` array con metadatos
-  - Deliveries: comprobantes asociados con sus metadatos
-  - Metadata guardado en MongoDB, archivos en servidor
-  - La API devuelve referencias y metadatos; no implementa descarga del contenido binario
-
-- ✅ **Validaciones y errores**
-  - Archivo requerido → MISSING_FILE
-  - Tipo MIME inválido → INVALID_FILE_TYPE
-  - Extensión no permitida → rechazado en Multer
-  - Tamaño excedido → FILE_TOO_LARGE
-  - Tipo de documento inválido → INVALID_DOCUMENT_TYPE
-  - Entidad no existe → 404 con código específico
-  - Formato centralizado en ErrorDictionary
-
-- ✅ **Documentación y logging**
-  - Endpoints en Swagger: marcados como multipart/form-data
-  - README.md: sección "Carga de archivos" con ejemplos curl
-  - BITACORA.md: decisiones y criterios documentados
-  - Winston logger: eventos registrados (upload, validación, error)
-  - Archivos rotados diariamente
-
-
 ### Reflexiones y decisiones clave tomadas
 
 **Separación de responsabilidades**:
